@@ -20,7 +20,7 @@ services:
 
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
-    image: hyperledger/fabric-peer:3.0.0-rocksdb
+    image: hyperledger/fabric-peer:2.4.0-rocksdb
     labels:
       service: hyperledger-fabric
     environment:
@@ -31,8 +31,8 @@ services:
       #- FABRIC_LOGGING_SPEC=DEBUG
       - CORE_CHAINCODE_LOGGING_LEVEL=WARNING
       - CORE_PEER_TLS_ENABLED=true
-#      - CORE_PEER_PROFILE_ENABLED=true
-#      - CORE_PEER_PROFILE_LISTENADDRESS=0.0.0.0:6060
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_PROFILE_LISTENADDRESS=0.0.0.0:6060
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
@@ -62,50 +62,6 @@ services:
     ports:
       - 7051:7051
       - 9444:9444
-#      - 6060:6060
+      - 6060:6060
     networks:
       - test
-
-#  peer0.org2.example.com:
-#    container_name: peer0.org2.example.com
-#    image: hyperledger/fabric-peer:2.4.0-leveldb-tune-1
-#    labels:
-#      service: hyperledger-fabric
-#    environment:
-#      #Generic peer variables
-#      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-#      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=fabric_test
-#      - FABRIC_LOGGING_SPEC=WARNING
-#      #- FABRIC_LOGGING_SPEC=DEBUG
-#      - CORE_CHAINCODE_LOGGING_LEVEL=WARNING
-#      - CORE_PEER_TLS_ENABLED=true
-#      - CORE_PEER_PROFILE_ENABLED=false
-#      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
-#      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
-#      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
-#      # Peer specific variables
-#      - CORE_PEER_ID=peer0.org2.example.com
-#      - CORE_PEER_ADDRESS=peer0.org2.example.com:9051
-#      - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
-#      - CORE_PEER_CHAINCODEADDRESS=peer0.org2.example.com:9052
-#      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
-#      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.example.com:9051
-#      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.example.com:9051
-#      - CORE_PEER_LOCALMSPID=Org2MSP
-#      - CORE_OPERATIONS_LISTENADDRESS=peer0.org2.example.com:9445
-#      - CORE_METRICS_PROVIDER=prometheus
-#      - CHAINCODE_AS_A_SERVICE_BUILDER_CONFIG={"peername":"peer0org2"}
-#      - CORE_CHAINCODE_EXECUTETIMEOUT=300s
-#    volumes:
-#        - ${DOCKER_SOCK}:/host/var/run/docker.sock
-#        - ../organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp:/etc/hyperledger/fabric/msp
-#        - ../organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls:/etc/hyperledger/fabric/tls
-#        - peer0.org2.example.com:/var/hyperledger/production
-#    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-#    command: peer node start
-#    ports:
-#      - 9051:9051
-#      - 9445:9445
-#    networks:
-#      - test
-
