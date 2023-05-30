@@ -20,4 +20,4 @@ OrdererOrgs:
       - Hostname: orderer
         SANS:
           - localhost
-          - 51.250.100.207
+          - 158.160.23.30

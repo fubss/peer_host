@@ -31,8 +31,8 @@ services:
       #- FABRIC_LOGGING_SPEC=DEBUG
       - CORE_CHAINCODE_LOGGING_LEVEL=WARNING
       - CORE_PEER_TLS_ENABLED=true
-#      - CORE_PEER_PROFILE_ENABLED=true
-#      - CORE_PEER_PROFILE_LISTENADDRESS=0.0.0.0:6060
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_PROFILE_LISTENADDRESS=0.0.0.0:6060
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
@@ -62,9 +62,12 @@ services:
     ports:
       - 7051:7051
       - 9444:9444
-#      - 6060:6060
+      - 6060:6060
+      - 1234:1234
     networks:
       - test
+    extra_hosts:
+      - "orderer.example.com:158.160.23.30"
 
 #  peer0.org2.example.com:
 #    container_name: peer0.org2.example.com

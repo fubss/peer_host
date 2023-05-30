@@ -16,7 +16,7 @@ organizations:
     - ca.org${ORG}.example.com
 peers:
   peer0.org${ORG}.example.com:
-    url: grpcs://158.160.3.197:${P0PORT}
+    url: grpcs://51.250.101.105:${P0PORT}
     tlsCACerts:
       pem: |
           ${PEERPEM}
@@ -25,7 +25,7 @@ peers:
 #      hostnameOverride: peer0.org${ORG}.example.com
 certificateAuthorities:
   ca.org${ORG}.example.com:
-    url: https://158.160.3.197:${CAPORT}
+    url: https://51.250.101.105:${CAPORT}
     caName: ca-org${ORG}
     tlsCACerts:
       pem: 

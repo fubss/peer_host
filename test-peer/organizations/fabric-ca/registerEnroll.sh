@@ -49,7 +49,7 @@ function createOrg1() {
 
   infoln "Generating the peer0-tls certificates"
   set -x
-  fabric-ca-client enroll -u https://peer0:peer0pw@localhost:7054 --caname ca-org1 -M "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls" --enrollment.profile tls --csr.hosts peer0.org1.example.com --csr.hosts localhost --csr.hosts 51.250.100.207 --csr.hosts 158.160.3.197 --tls.certfiles "${PWD}/organizations/fabric-ca/org1/tls-cert.pem"
+  fabric-ca-client enroll -u https://peer0:peer0pw@localhost:7054 --caname ca-org1 -M "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls" --enrollment.profile tls --csr.hosts peer0.org1.example.com --csr.hosts localhost --csr.hosts 158.160.23.30 --csr.hosts 51.250.101.105 --tls.certfiles "${PWD}/organizations/fabric-ca/org1/tls-cert.pem"
   { set +x; } 2>/dev/null
 
   cp "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/tlscacerts/"* "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"

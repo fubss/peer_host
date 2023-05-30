@@ -65,6 +65,8 @@ services:
 #      - 6060:6060
     networks:
       - test
+    extra_hosts:
+      - "orderer.example.com:158.160.23.30"
 
 #  peer0.org2.example.com:
 #    container_name: peer0.org2.example.com
